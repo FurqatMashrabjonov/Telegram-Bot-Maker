@@ -1,0 +1,27 @@
+{
+    "commands": [
+        {
+            "command": "hello",
+            "actions": [
+                {
+                    "action": "message",
+                    "args": {
+                        "message": "Hello world!!!"
+                    }
+                },
+                {
+                    "action": "message",
+                    "args": {
+                        "message": "Пивет!!!"
+                    }
+                },
+                {
+                    "action": "message",
+                    "args": {
+                        "message": "Salom"
+                    }
+                }
+            ]
+        }
+    ]
+}
