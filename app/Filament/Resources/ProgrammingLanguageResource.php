@@ -4,8 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Enums\LanguageStatus;
 use App\Filament\Resources\ProgrammingLanguageResource\Pages;
-use App\Filament\Resources\ProgrammingLanguageResource\RelationManagers;
-use App\Models\Framework;
 use App\Models\Language;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -13,8 +11,6 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\BadgeColumn;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ProgrammingLanguageResource extends Resource
 {

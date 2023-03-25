@@ -3,16 +3,15 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ComponentResource\Pages;
-use App\Filament\Resources\ComponentResource\RelationManagers;
 use App\Models\Component;
+use App\Models\Framework;
+use App\Models\Language;
 use Filament\Forms;
-use Filament\Forms\Components\RichEditor;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Lang;
 
 class ComponentResource extends Resource
 {
@@ -25,7 +24,11 @@ class ComponentResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name'),
-                Forms\Components\Textarea::make('body')
+                Forms\Components\Textarea::make('body'),
+                Forms\Components\Select::make('Language')
+                    ->options(function () { return Language::pluck('name', 'id'); })->required(),
+                Forms\Components\Select::make('Framework')
+                    ->options(function () { return Framework::pluck('name', 'id'); })->required(),
             ]);
     }
 
@@ -33,7 +36,9 @@ class ComponentResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('language.name'),
+                Tables\Columns\TextColumn::make('framework.name'),
             ])
             ->filters([
                 //

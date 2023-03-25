@@ -15,8 +15,10 @@ class ComponentSeeder extends Seeder
     {
         $components = [
             [
+                'language_id' => 1,
+                'framework_id' => 1,
                 'name' => 'message',
-                'body' =>'$bot->sendMessage($message->getChat()->getId(), "{{message}}");'
+                'body' => '$bot->sendMessage($message->getChat()->getId(), "{{message}}");'
             ]
         ];
 

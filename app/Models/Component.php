@@ -9,13 +9,15 @@ class Component extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'body'];
+    protected $fillable = ['framework_id', 'name', 'body'];
 
-    public function framework(){
+    public function framework(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
         return $this->belongsTo(Component::class);
     }
 
-    public function language(){
+    public function language(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
         return $this->belongsTo(Component::class);
     }
 }
