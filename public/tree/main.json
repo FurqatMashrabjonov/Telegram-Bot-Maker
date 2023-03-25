@@ -6,19 +6,7 @@
                 {
                     "action": "message",
                     "args": {
-                        "message": "Hello world!!!"
-                    }
-                },
-                {
-                    "action": "message",
-                    "args": {
-                        "message": "Пивет!!!"
-                    }
-                },
-                {
-                    "action": "message",
-                    "args": {
-                        "message": "Salom"
+                        "message": "Hello OSRBEKK!!!"
                     }
                 }
             ]

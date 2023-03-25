@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::table('components', function (Blueprint $table) {
             $table->foreign('language_id')->references('id')->on('languages');
             $table->foreign('framework_id')->references('id')->on('frameworks');
+            $table->foreign('template_id')->references('id')->on('templates');
         });
 
         Schema::table('frameworks', function (Blueprint $table) {

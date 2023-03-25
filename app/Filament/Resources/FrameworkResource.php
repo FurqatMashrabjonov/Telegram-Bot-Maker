@@ -13,8 +13,6 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\BadgeColumn;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class FrameworkResource extends Resource
 {
@@ -64,7 +62,7 @@ class FrameworkResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\FrameworksRelationManager::class
         ];
     }
 

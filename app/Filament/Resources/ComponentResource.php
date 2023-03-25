@@ -25,9 +25,9 @@ class ComponentResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name'),
                 Forms\Components\Textarea::make('body'),
-                Forms\Components\Select::make('Language')
+                Forms\Components\Select::make('language_id')
                     ->options(function () { return Language::pluck('name', 'id'); })->required(),
-                Forms\Components\Select::make('Framework')
+                Forms\Components\Select::make('framework_id')
                     ->options(function () { return Framework::pluck('name', 'id'); })->required(),
             ]);
     }

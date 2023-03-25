@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('language_id');
             $table->unsignedBigInteger('framework_id');
-            $table->string('name')->unique();
+            $table->unsignedBigInteger('template_id');
             $table->text('body');
             $table->timestamps();
         });

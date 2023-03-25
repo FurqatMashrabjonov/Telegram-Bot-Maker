@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'furqat@mail.ru',
             'password' => Hash::make('furqat12345')
         ]);
-
+        $this->call(TemplateSeeder::class);
         $this->call(LanguageSeeder::class);
         $this->call(FrameworkSeeder::class);
-        $this->call(ComponentSeeder::class);
+//        $this->call(ComponentSeeder::class);
     }
 }

@@ -9,7 +9,7 @@ class Component extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['framework_id', 'name', 'body'];
+    protected $fillable = ['framework_id', 'language_id', 'name', 'body'];
 
     public function framework(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

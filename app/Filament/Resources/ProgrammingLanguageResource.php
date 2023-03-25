@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Enums\LanguageStatus;
+use App\Filament\Resources\LanguageResource\RelationManagers\LanguagesRelationManager;
 use App\Filament\Resources\ProgrammingLanguageResource\Pages;
 use App\Models\Language;
 use Filament\Forms;
@@ -59,7 +60,7 @@ class ProgrammingLanguageResource extends Resource
     public static function getRelations(): array
     {
         return [
-
+            LanguagesRelationManager::class
         ];
     }
 
