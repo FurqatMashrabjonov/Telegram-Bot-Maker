@@ -6,12 +6,12 @@ use App\Filament\Resources\ComponentResource\Pages;
 use App\Models\Component;
 use App\Models\Framework;
 use App\Models\Language;
+use App\Models\Template;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Support\Facades\Lang;
 
 class ComponentResource extends Resource
 {
@@ -23,8 +23,10 @@ class ComponentResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name'),
-                Forms\Components\Textarea::make('body'),
+
+                Forms\Components\Textarea::make('body')->columnSpan('full'),
+                Forms\Components\Select::make('template_id')
+                    ->options(function () { return Template::pluck('name', 'id'); })->required(),
                 Forms\Components\Select::make('language_id')
                     ->options(function () { return Language::pluck('name', 'id'); })->required(),
                 Forms\Components\Select::make('framework_id')
@@ -36,9 +38,9 @@ class ComponentResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('language.name'),
+                Tables\Columns\TextColumn::make('language.name')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('framework.name'),
+                Tables\Columns\TextColumn::make('template.name'),
             ])
             ->filters([
                 //

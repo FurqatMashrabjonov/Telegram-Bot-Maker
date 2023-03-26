@@ -4,9 +4,26 @@
             "command": "hello",
             "actions": [
                 {
-                    "action": "message",
+                    "action": "sendMessage",
                     "args": {
-                        "message": "Hello OSRBEKK!!!"
+                        "text": "Hello"
+                    }
+                },
+                {
+                    "action": "sendChatAction",
+                    "args": {
+                        "action": "typing"
+                    }
+                }
+            ]
+        },
+        {
+            "command": "start",
+            "actions": [
+                {
+                    "action": "sendMessage",
+                    "args": {
+                        "text": "Salom hush kelibsiz"
                     }
                 }
             ]

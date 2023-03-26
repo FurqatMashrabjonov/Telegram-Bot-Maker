@@ -2,6 +2,7 @@
 
 namespace App\Telegram;
 
+use App\Models\Template;
 use Illuminate\Support\Facades\Log;
 
 class Component
@@ -9,6 +10,7 @@ class Component
     public array $args;
     public string $name;
     public string $ready;
+
     public function __construct(string $name, array $args)
     {
         $this->args = $args;
@@ -24,7 +26,14 @@ class Component
 
     function filler(): string
     {
-        $component = \App\Models\Component::query()->where('name', $this->name)->first();
+        $language_id = 4;
+        $framework_id = 2;
+        $template = Template::query()->where('name', $this->name)->first();
+        $component = \App\Models\Component::query()
+            ->where('template_id', $template->id)
+            ->where('language_id', $language_id)
+            ->where('framework_id', $framework_id)
+            ->first();
         $component = $component->body;
         foreach ($this->args as $key => $arg) {
             $tmp = explode("{{{$key}}}", $component);
